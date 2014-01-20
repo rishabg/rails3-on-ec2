@@ -9,20 +9,20 @@ ami for Ubuntu LTS 12.04
 
 system update
 -------------
-    sudo apt-get update
-    sudo apt-get upgrade
+    sudo apt-get update - DONE 1/19
+    sudo apt-get upgrade - DONE 1/19
 
 configure timezone
 -------------
-    sudo dpkg-reconfigure tzdata
+    sudo dpkg-reconfigure tzdata - DONE 1/19
 
 rvm
 -------------
-    curl -L get.rvm.io | sudo bash -s stable
-    sudo usermod -a -G rvm ubuntu
+    curl -L get.rvm.io | sudo bash -s stable - DONE 1/19
+    sudo usermod -a -G rvm ubuntu - DONE 1/19
     exit
-    rvm install 1.9.3
-    rvm use 1.9.3 --default
+    rvm install 1.9.3 - DONE 1/19 (as ubuntu)
+    rvm use 1.9.3 --default - DONE 1/19 (as ubuntu)
     exit
 
 rubygems/rails/passenger
@@ -33,7 +33,7 @@ rubygems/rails/passenger
 
 nginx
 -------------
-    sudo apt-get install libcurl4-openssl-dev
+    sudo apt-get install libcurl4-openssl-dev - DONE 1/19
     rvmsudo passenger-install-nginx-module
 
 nginx configuration
@@ -59,7 +59,7 @@ nginx init script
 
 mysql
 -------------
-    sudo apt-get install mysql-server libmysqlclient-dev
+    sudo apt-get install mysql-server libmysqlclient-dev - DONE 1/19
 
 mysql configuration
 -------------
@@ -81,22 +81,3 @@ database and users
     CREATE USER 'user1'@'localhost' IDENTIFIED BY '123456';
     GRANT ALL PRIVILEGES ON db1.* TO 'user1'@'localhost' WITH GRANT OPTION;
 
-nodejs
--------------
-    sudo apt-get install python-software-properties
-    sudo add-apt-repository ppa:chris-lea/node.js
-    sudo apt-get update
-    sudo apt-get install nodejs npm
-
-Wordpress automatic update
--------------
-    change php-fpm user in /etc/php/fpm/pool.d/www.conf
-        user = ubuntu
-        group = ubuntu
-        
-    change listen to socket
-        listen = /var/run/php-fpm.sock
-
-crontab for Rails tasks
--------------
-    /bin/bash -l -c "cd /home/ubuntu/www/site1 && rake cron"
