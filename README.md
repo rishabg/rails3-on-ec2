@@ -3,27 +3,27 @@ rails3-on-ec2
 
 Instructions for create a ubuntu ec2 instance for rails
 
+Host: ec2-54-221-156-94.compute-1.amazonaws.com
+
 ami for Ubuntu LTS 12.04
 -------------
     ami-e1e8d395
 
 system update
 -------------
-    sudo apt-get update - DONE 1/19
-    sudo apt-get upgrade - DONE 1/19
+    sudo apt-get update - DONE 1/20
+    sudo apt-get upgrade - DONE 1/20
 
 configure timezone
 -------------
-    sudo dpkg-reconfigure tzdata - DONE 1/19
+    sudo dpkg-reconfigure tzdata - DONE 1/20
 
 rvm
 -------------
-    curl -L get.rvm.io | sudo bash -s stable - DONE 1/19
-    sudo usermod -a -G rvm ubuntu - DONE 1/19
-    exit
-    rvm install 1.9.3 - DONE 1/19 (as ubuntu)
-    rvm use 1.9.3 --default - DONE 1/19 (as ubuntu)
-    exit
+    curl -L get.rvm.io | sudo bash -s stable - 
+    sudo usermod -a -G rvm ubuntu - 
+    rvm install 1.9.3 - 
+    rvm use 1.9.3 --default - 
 
 rubygems/rails/passenger
 -------------
@@ -59,7 +59,7 @@ nginx init script
 
 mysql
 -------------
-    sudo apt-get install mysql-server libmysqlclient-dev - DONE 1/19
+    sudo apt-get install mysql-server libmysqlclient-dev - DONE 1/20
 
 mysql configuration
 -------------
