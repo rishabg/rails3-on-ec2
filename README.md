@@ -14,12 +14,12 @@ system update
 
 configure timezone
 -------------
-    dpkg-reconfigure tzdata
+    sudo dpkg-reconfigure tzdata
 
 rvm
 -------------
     curl -L get.rvm.io | sudo bash -s stable
-    usermod -a -G rvm ubuntu
+    sudo usermod -a -G rvm ubuntu
     exit
     rvm install 1.9.3
     rvm use 1.9.3 --default
