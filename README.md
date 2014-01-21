@@ -9,34 +9,34 @@ ami for Ubuntu LTS 12.04
 -------------
     ami-e1e8d395
 
-system update
+system update (SG DONE)
 -------------
     sudo apt-get update - DONE 1/20
     sudo apt-get upgrade - DONE 1/20
 
-configure timezone
+configure timezone (SG DONE)
 -------------
     sudo dpkg-reconfigure tzdata - DONE 1/20
 
-rvm
+rvm (JM)
 -------------
     curl -L get.rvm.io | sudo bash -s stable - 
     sudo usermod -a -G rvm ubuntu - 
     rvm install 1.9.3 - 
     rvm use 1.9.3 --default - 
 
-rubygems/rails/passenger
+rubygems/rails/passenger (JM)
 -------------
     gem update --system
     gem install rails
     gem install passenger
 
-nginx
+nginx (RG)
 -------------
-    sudo apt-get install libcurl4-openssl-dev - DONE 1/19
+    sudo apt-get install libcurl4-openssl-dev 
     rvmsudo passenger-install-nginx-module
 
-nginx configuration
+nginx configuration (RG)
 -------------
     /opt/nginx/conf/nginx.conf
     server {
@@ -46,18 +46,18 @@ nginx configuration
         passenger_enabled on;
     }
 
-guide to nginx
+guide to nginx (RG)
 -------------
     located in /usr/local/rvm/gems/ruby-1.9.3-p194/gems/passenger-3.0.12/doc/Users guide Nginx.html
 
-nginx init script
+nginx init script (RG)
 -------------
     git clone https://github.com/hulihanapplications/nginx-init-debian.git
     cd nginx-init-debian
     sudo cp etc/init/nginx.conf /etc/init
     sudo start nginx
 
-mysql
+mysql (SG DONE)
 -------------
     sudo apt-get install mysql-server libmysqlclient-dev - DONE 1/20
     sudo service mysql stop
@@ -80,7 +80,7 @@ sudo vi /etc/apparmor.d/usr.sbin.mysqld
     sudo service mysql start
 
 
-mysql configuration
+mysql configuration (SG TODO)
 -------------
     add to [client]
         default-character-set=utf8
@@ -93,7 +93,7 @@ mysql configuration
     to comment
         bind-address           = 127.0.0.1
 
-database and users
+database and users (SG TODO)
 -------------
     mysql -u root -p
     create database db1
@@ -101,7 +101,7 @@ database and users
     GRANT ALL PRIVILEGES ON db1.* TO 'user1'@'localhost' WITH GRANT OPTION;
 
 
-database data restore
+database data restore (SG)
 -------------
 
     r3> /home/deploy/scripts/backup_db.sh
@@ -119,5 +119,8 @@ database data restore
     
     
     mysql> create database ilab_ondemand_db;
+    
+    > ls | xargs gunzip -c | mysql -uroot ilab_ondemand_db
+
 
 
