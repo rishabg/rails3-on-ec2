@@ -107,3 +107,17 @@ database data restore
     r3> /home/deploy/scripts/backup_db.sh
     r3 /home/deploy/backups> tar cvf ilab_refresh.tar 012020141516/*
     r3> scp ilab_refresh.tar ubuntu@ec2-54-221-156-94.compute-1.amazonaws.com:ilab_refresh.tar
+
+    on ec2:
+    > sudo mkdir /mnt/data/restore_db
+    > cd /mnt/data/restore_db
+    > sudo tar xvf ~/ilab_refresh.tar
+    > cd 012020141516/ilab_refresh_db
+    > sudo mkdir ../versions
+    > sudo mv *_version* ../versions/
+    > sudo mv sessions.sql.gz ../versions/
+    
+    
+    mysql> create database ilab_ondemand_db;
+
+
