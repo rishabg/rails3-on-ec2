@@ -20,10 +20,9 @@ configure timezone (SG DONE)
 
 rvm (JM)
 -------------
-    curl -L get.rvm.io | sudo bash -s stable - 
-    sudo usermod -a -G rvm ubuntu - 
-    rvm install 1.9.3 - 
-    rvm use 1.9.3 --default - 
+    \curl -sSL https://get.rvm.io | bash
+    rvm install ruby-1.9.3-p484 
+    rvm use 1.9.3-p484 --default
 
 rubygems/rails/passenger (JM)
 -------------
