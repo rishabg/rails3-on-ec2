@@ -46,16 +46,20 @@ nginx configuration (RG)
         passenger_enabled on;
     }
 
-guide to nginx (RG)
--------------
-    located in /usr/local/rvm/gems/ruby-1.9.3-p194/gems/passenger-3.0.12/doc/Users guide Nginx.html
-
 nginx init script (RG)
 -------------
     git clone https://github.com/hulihanapplications/nginx-init-debian.git
     cd nginx-init-debian
     sudo cp etc/init/nginx.conf /etc/init
     sudo start nginx
+
+java and solr (RG TODO)
+-------------
+    fill in
+    
+fog (RG TODO)
+-------------
+    last priority
 
 mysql (SG DONE)
 -------------
