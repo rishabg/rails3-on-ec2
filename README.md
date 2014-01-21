@@ -60,6 +60,25 @@ nginx init script
 mysql
 -------------
     sudo apt-get install mysql-server libmysqlclient-dev - DONE 1/20
+    sudo service mysql stop
+    sudo mkdir /mnt/data
+    sudo rsync -av /var/lib/mysql /mnt/data/
+
+Then I edited the datadir line in /etc/mysql/my.cnf:
+
+sudo vi /etc/mysql/my.cnf
+-datadir     = /var/lib/mysql
++datadir     = /mnt/data/mysql
+Then I edited /etc/apparmor.d/usr.sbin.mysqld:
+
+sudo vi /etc/apparmor.d/usr.sbin.mysqld
+-  /var/lib/mysql/ r,
+-  /var/lib/mysql/** rwk,
++  /mnt/data/mysql/ r,
++  /mnt/data/mysql/** rwk,
+
+    sudo service mysql start
+
 
 mysql configuration
 -------------
@@ -81,3 +100,10 @@ database and users
     CREATE USER 'user1'@'localhost' IDENTIFIED BY '123456';
     GRANT ALL PRIVILEGES ON db1.* TO 'user1'@'localhost' WITH GRANT OPTION;
 
+
+database data restore
+-------------
+
+    r3> /home/deploy/scripts/backup_db.sh
+    r3 /home/deploy/backups> tar cvf ilab_refresh.tar 012020141516/*
+    r3> scp ilab_refresh.tar ubuntu@ec2-54-221-156-94.compute-1.amazonaws.com:ilab_refresh.tar
