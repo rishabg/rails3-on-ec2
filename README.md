@@ -18,17 +18,18 @@ configure timezone (SG DONE)
 -------------
     sudo dpkg-reconfigure tzdata - DONE 1/20
 
-rvm (JM)
+rvm (JM Done)
 -------------
+    #Used same versions as in utility
     \curl -sSL https://get.rvm.io | bash
     rvm install ruby-1.9.3-p484 
     rvm use 1.9.3-p484 --default
 
-rubygems/rails/passenger (JM)
+rubygems/passenger (JM Done)
 -------------
-    gem update --system
-    gem install rails
-    gem install passenger
+    #Used same versions as in utility
+    rvm rubygems 2.1.11
+    gem install passenger -v=4.0.26
 
 nginx (RG)
 -------------
