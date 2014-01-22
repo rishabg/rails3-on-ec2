@@ -31,32 +31,37 @@ rubygems/passenger (JM Done)
     rvm rubygems 2.1.11
     gem install passenger -v=4.0.26
 
-nginx (RG)
+nginx (RG done)
 -------------
     sudo apt-get install libcurl4-openssl-dev 
     rvmsudo passenger-install-nginx-module
 
-nginx configuration (RG)
+nginx configuration (RG done)
 -------------
-    /opt/nginx/conf/nginx.conf
-    server {
-        listen 80;
-        server_name www.yourhost.com;
-        root /somewhere/public;   # <--- be sure to point to 'public'!
-        passenger_enabled on;
-    }
+    copy server config from nginx.conf in the repo to /opt/nginx/conf
 
-nginx init script (RG)
+nginx init script (RG done)
 -------------
     git clone https://github.com/hulihanapplications/nginx-init-debian.git
     cd nginx-init-debian
     sudo cp etc/init/nginx.conf /etc/init
     sudo start nginx
 
-java and solr (RG TODO)
+java and solr (RG done)
 -------------
-    fill in
+    wget http://mirrors.ibiblio.org/apache/tomcat/tomcat-6/v6.0.37/bin/apache-tomcat-6.0.37.tar.gz
+    unpack to /opt/tomcat
+    copy solr/tomcat in this repo to /etc/init.d/
+
+    wget http://archive.apache.org/dist/lucene/solr/1.4.1/apache-solr-1.4.1.tgz
+    unpack to /opt/solr
+    cp -rf /opt/solr/example/solr /opt/solr/production
+    cp /opt/solr/example/webapps/solr.war /opt/solr/production/apache-solr-1.4.1.war
+    copy xml files from ./solr into /opt/solr/production/conf
+    copy ./solr/tomcat into /etc/init.d/tomcat
+    copy ./solr/tomcat.conf into /etc/init/tomcat.conf
     
+
 fog (RG TODO)
 -------------
     last priority
